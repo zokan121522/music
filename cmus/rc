@@ -124,6 +124,9 @@ set show_playback_position=true
 # No mostrar leading zero en tiempo
 set time_show_leading_zero=true
 
+# Ocultar archivos y carpetas ocultas (que empiezan con .)
+set show_hidden=false
+
 # No seguir reproducción automáticamente
 set follow=false
 

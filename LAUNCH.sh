@@ -8,6 +8,7 @@ MUSIC_DIR="$HOME/music"
 CMUS_CONFIG="$HOME/.config/cmus/rc"
 SCRIPTS_DIR="$MUSIC_DIR/scripts"
 DOCS_DIR="$MUSIC_DIR/docs"
+MUSIC_PATH_CONF="$HOME/.config/cmus/music-path.conf"
 
 show_menu() {
     clear
@@ -21,7 +22,7 @@ show_menu() {
     echo ""
     echo "   1) 🎧  Launch cmus"
     echo "   2) 📖  Help & Keybindings"
-    echo "   3) ⚙️   Edit Configuration"
+    echo "   3) ⚙️   Settings"
     echo "   4) 📂  Browse Music Folders"
     echo "   5) 🔄  Install/Update Dependencies"
     echo "   6) ❌  Quit"
@@ -36,10 +37,7 @@ while true; do
 
     case $choice in
         1)
-            echo ""
-            echo "  🎧 Launching cmus..."
-            sleep 0.5
-            cmus
+            bash "$SCRIPTS_DIR/boot-cmus.sh"
             echo ""
             echo "  Press Enter to return to menu..."
             read
@@ -74,26 +72,69 @@ while true; do
             fi
             ;;
         3)
-            if command -v nano &>/dev/null; then
-                EDITOR="nano"
-            elif command -v vim &>/dev/null; then
-                EDITOR="vim"
-            else
-                EDITOR="vi"
-            fi
-            $EDITOR "$CMUS_CONFIG"
+            while true; do
+                clear
+                # Read current music path
+                if [ -f "$MUSIC_PATH_CONF" ]; then
+                    CUR_PATH=$(cat "$MUSIC_PATH_CONF" | head -1)
+                else
+                    CUR_PATH="$HOME/Music"
+                fi
+
+                echo "  ╔═══════════════════════════════════════╗"
+                echo "  ║           ⚙️  Settings                ║"
+                echo "  ╚═══════════════════════════════════════╝"
+                echo ""
+                echo "    📂 Music path: $CUR_PATH"
+                echo ""
+                echo "    1) 📝  Edit cmus configuration"
+                echo "    2) 📂  Set default music path"
+                echo "    3) 🔙  Back to main menu"
+                echo ""
+                read -p "  Select option [1-3]: " settings_choice
+
+                case $settings_choice in
+                    1)
+                        if command -v nano &>/dev/null; then
+                            EDITOR="nano"
+                        elif command -v vim &>/dev/null; then
+                            EDITOR="vim"
+                        else
+                            EDITOR="vi"
+                        fi
+                        $EDITOR "$CMUS_CONFIG"
+                        ;;
+                    2)
+                        bash "$SCRIPTS_DIR/set-music-path.sh"
+                        ;;
+                    3)
+                        break
+                        ;;
+                    *)
+                        echo ""
+                        echo "  ❌ Invalid option."
+                        sleep 1
+                        ;;
+                esac
+            done
             ;;
         4)
+            # Read configured music path
+            if [ -f "$MUSIC_PATH_CONF" ]; then
+                BROWSE_PATH=$(cat "$MUSIC_PATH_CONF" | head -1)
+            else
+                BROWSE_PATH="$MUSIC_DIR"
+            fi
             echo ""
             echo "  📂 Music Folders:"
             echo "  ─────────────────────────────────────────"
-            ls -la "$MUSIC_DIR" | grep "^d" | awk '{print "  📁 " $NF}'
+            ls -1 "$BROWSE_PATH" | head -30
             echo ""
-            echo "  Full path: $MUSIC_DIR"
+            echo "  Full path: $BROWSE_PATH"
             echo ""
             read -p "  Or type a subfolder to browse: " subfolder
-            if [ -n "$subfolder" ] && [ -d "$MUSIC_DIR/$subfolder" ]; then
-                ls -la "$MUSIC_DIR/$subfolder"
+            if [ -n "$subfolder" ] && [ -d "$BROWSE_PATH/$subfolder" ]; then
+                ls -1 "$BROWSE_PATH/$subfolder"
             elif [ -n "$subfolder" ]; then
                 echo "  ❌ Folder not found"
             fi

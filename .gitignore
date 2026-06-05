@@ -1,0 +1,20 @@
+# ─── Ignorar todo por defecto ───
+*.*
+!*/
+
+# ─── Solo trackear estos archivos ───
+!.gitignore
+!README.md
+!cmus/**
+!scripts/**
+!docs/**
+!LAUNCH.sh
+
+# ─── Dentro de lo trackeado, ignorar basura ───
+.DS_Store
+*.swp
+*.swo
+*~
+
+# ─── Ignorar Apple Music library (subdirectorio) ───
+/Music/

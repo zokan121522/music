@@ -1,0 +1,206 @@
+# ═══════════════════════════════════════════════════════════
+#  CMUS — Retro Wave Stranger Things Theme
+# ═══════════════════════════════════════════════════════════
+#
+#  Paleta:
+#    Fondo     Negro azabache     (#0d0d0d)  color 232
+#    Superficie Gris oscuro       (#1a1a1a)  color 233
+#    Rojo      Sangre             (#8b0000)  color 88
+#    Rojo bri  Fuego              (#cc0000)  color 160
+#    Gris      Ceniza             (#666666)  color 241
+#    Gris cl   Humo               (#999999)  color 246
+#    Blanco    Nieve              (#ffffff)  color 255
+#    Error     Alerta             (#ff4444)  color 196
+#
+# ═══════════════════════════════════════════════════════════
+
+# ─── 1. PALETA DE COLORES ──────────────────────────────────
+
+# Fondo general de ventana
+set color_win_bg=232
+set color_win_fg=255
+
+# Fondo de la ventana (alternativo)
+set color_win_title_bg=88
+set color_win_title_fg=255
+set color_win_title_attr=bold
+
+# Línea de título (superior)
+set color_titleline_bg=88
+set color_titleline_fg=255
+set color_titleline_attr=bold
+
+# Línea de estado (inferior) — rojo oscuro con texto blanco
+set color_statusline_bg=88
+set color_statusline_fg=255
+set color_statusline_attr=default
+
+# Barra de progreso en la línea de estado
+set color_statusline_progress_bg=241
+set color_statusline_progress_fg=160
+set color_statusline_progress_attr=default
+
+# Línea de comandos
+set color_cmdline_bg=232
+set color_cmdline_fg=255
+set color_cmdline_attr=default
+
+# Elemento seleccionado actual (cursor)
+set color_win_cur=255
+set color_win_cur_attr=default
+
+# Elemento seleccionado actual + marcado
+set color_win_cur_sel_bg=88
+set color_win_cur_sel_fg=255
+set color_win_cur_sel_attr=bold
+
+# Elemento seleccionado (marcado)
+set color_win_sel_bg=52
+set color_win_sel_fg=255
+set color_win_sel_attr=default
+
+# Directorios en navegador
+set color_win_dir=160
+set color_win_dir_attr=bold
+
+# Elemento inactivo seleccionado
+set color_win_inactive_cur_sel_bg=241
+set color_win_inactive_cur_sel_fg=255
+set color_win_inactive_cur_sel_attr=default
+
+set color_win_inactive_sel_bg=236
+set color_win_inactive_sel_fg=246
+set color_win_inactive_sel_attr=default
+
+# Separador entre paneles
+set color_separator=241
+
+# Mensajes de error — rojo brillante
+set color_error=196
+set color_error_attr=bold
+
+# Mensajes de información — blanco
+set color_info=255
+
+# ─── 2. FORMATO DE VISUALIZACIÓN ───────────────────────────
+
+# Formato de canción actual (Now Playing)
+set format_current= ♪ %a - %l%! - %n. %t %= %y 
+
+# Formato alternativo (cuando está en cola/panel pequeño)
+set altformat_current= ♪ %t 
+
+# Formato en la lista de reproducción
+set format_playlist= ♪ %-21%a %3n. %t %= %y %d %{?X!=0?%3X ?    }
+set altformat_playlist= ♪ %f %= %d 
+
+# Formato en la vista de tracks
+set format_trackwin= %3n. %t %= %d 
+set altformat_trackwin= %f %= %d 
+
+# Formato título de ventana
+set format_title=%a - %l - %t
+
+# Formato de álbum en tree view
+set format_treewin=  %l
+set format_treewin_artist=%a
+
+# ─── 3. BARRA DE ESTADO ────────────────────────────────────
+
+# Leyenda de controles visibles en la barra inferior
+set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }} %= %{?play_library?%{?playlist_mode!="all"?%{playlist_mode} }library} | %{?volume>=0?%{volume}%% }| %1{repeat}%1{shuffle} — [p]pause [b]next [z]prev [s]shuffle [r]repeat [q]quit
+
+# ─── 4. COMPORTAMIENTO ─────────────────────────────────────
+
+# Iniciar en vista navegador de archivos (vista 5)
+set start_view=browser
+
+# Barra de progreso visual tipo "barra"
+set progress_bar=bar
+
+# Mostrar posición de reproducción
+set show_playback_position=true
+
+# No mostrar leading zero en tiempo
+set time_show_leading_zero=true
+
+# No seguir reproducción automáticamente
+set follow=false
+
+# Continuar reproducción
+set continue=false
+
+# Modo reproducción: all (todo), artist, album
+set aaa_mode=all
+
+# Auto expandir álbumes
+set auto_expand_albums_follow=true
+set auto_expand_albums_search=true
+set auto_expand_albums_selcur=true
+
+# Ordenar biblioteca
+set lib_sort=albumartist date album discnumber tracknumber title filename play_count
+
+# Ancho del árbol
+set tree_width_percent=33
+set tree_width_max=0
+
+# Scroll offset
+set scroll_offset=2
+
+# ─── 5. FILTROS RÁPIDOS ────────────────────────────────────
+
+# Canciones no escuchadas
+fset unheard=play_count=0
+
+# Añadidas recientemente (últimos 30 días)
+fset new=date>2026-05-05
+
+# Por formato
+fset mp3=filename="*.mp3"
+fset flac=filename="*.flac"
+fset ogg=filename="*.ogg"
+fset wav=filename="*.wav"
+
+# Streamming
+fset stream=stream
+
+# Sin metadatos
+fset missing-tag=!stream&(artist=""|album=""|title=""|tracknumber=-1|date=-1)
+
+# Activar filtros por defecto
+factivate
+
+# ─── 6. KEYBINDINGS PERSONALIZADOS ─────────────────────────
+
+# p para pausa (además de c)
+bind common p player-pause
+
+# F1 para panel de ayuda
+bind common F1 push shell ~/music/scripts/help-panel.sh
+
+# Volumen con + y - (ya existen por defecto, se mantienen)
+# + y - ya vienen bindeados de serie
+
+# ─── 7. AJUSTES VARIOS ─────────────────────────────────────
+
+# Salir con confirmación (limpio)
+set confirm_run=true
+
+# MPRIS para integración con escritorio
+set mpris=true
+
+# Usar CoreAudio en macOS
+set output_plugin=coreaudio
+
+# Buffer de audio
+set buffer_seconds=10
+
+# Mouse desactivado (navegación solo teclado)
+set mouse=false
+
+# No mostrar bitrate
+set show_current_bitrate=false
+
+# Replaygain
+set replaygain=disabled

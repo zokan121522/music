@@ -28,16 +28,21 @@ Press **5** in cmus to browse your music folders.
 
 ## 📁 Structure
 
+The project lives at `~/MyApps/music/`. Music files are at `~/music/` (symlink to storage).
+
 ```
-music/
+~/MyApps/music/
 ├── LAUNCH.sh          # Main navigation menu
 ├── cmus/
-│   ├── rc             # CMUS configuration (theme + keybindings)
-│   └── autosave       # Saved settings
+│   └── rc             # CMUS configuration reference
 ├── scripts/
-│   └── help-panel.sh  # F1 help overlay
+│   ├── help-panel.sh  # F1 help overlay
+│   ├── fav-toggle.sh  # ★ favorites toggle
+│   ├── fav-load.sh    # Favorites browser
+│   └── boot-cmus.sh   # Launcher with music path
 ├── docs/
 │   └── KEYBINDINGS.md # Full keybinding reference
+├── Dockerfile         # Linux verification build
 └── README.md
 ```
 

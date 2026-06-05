@@ -3,7 +3,7 @@
 #  CMUS — Browse Favorites
 #  Navigates to the favorites-view symlink directory so you
 #  can browse and play favorites like any other folder.
-#  Bind to: bind common F push shell ~/music/scripts/fav-load.sh
+#  Bind to: bind common F push shell ~/MyApps/music/scripts/fav-load.sh
 # ═══════════════════════════════════════════════════════════
 
 FAV_FILE="$HOME/.config/cmus/favorites.list"

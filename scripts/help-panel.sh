@@ -2,7 +2,7 @@
 # ═══════════════════════════════════════════════════════════
 #  CMUS — Help Panel
 #  Displays keybindings reference via less
-#  Bind to F1 in cmus: bind common F1 push shell ~/music/scripts/help-panel.sh
+#  Bind to F1 in cmus: bind common F1 push shell ~/MyApps/music/scripts/help-panel.sh
 # ═══════════════════════════════════════════════════════════
 
 cat << 'EOF' | less -R

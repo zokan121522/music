@@ -180,13 +180,13 @@ factivate
 bind common p player-pause
 
 # F1 para panel de ayuda
-bind common F1 push shell ~/music/scripts/help-panel.sh
+bind common F1 push shell ~/MyApps/music/scripts/help-panel.sh
 
 # f para toggle favoritos (★)
-bind common f push shell ~/music/scripts/fav-toggle.sh
+bind common f push shell ~/MyApps/music/scripts/fav-toggle.sh
 
 # F (Shift+f) para cargar lista de favoritos
-bind common F push shell ~/music/scripts/fav-load.sh
+bind common F push shell ~/MyApps/music/scripts/fav-load.sh
 
 # Volumen con + y - (ya existen por defecto, se mantienen)
 # + y - ya vienen bindeados de serie

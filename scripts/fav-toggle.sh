@@ -2,7 +2,7 @@
 # ═══════════════════════════════════════════════════════════
 #  CMUS — Toggle Favorite (★)
 #  Adds/removes ★ in the audio file's Comment tag + symlinks
-#  Bind to: bind common f push shell ~/music/scripts/fav-toggle.sh
+#  Bind to: bind common f push shell ~/MyApps/music/scripts/fav-toggle.sh
 # ═══════════════════════════════════════════════════════════
 
 FAV_FILE="$HOME/.config/cmus/favorites.list"

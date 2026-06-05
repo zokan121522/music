@@ -4,10 +4,10 @@
 #  Stranger Things Edition
 # ═══════════════════════════════════════════════════════════
 
+PROJECT_DIR="$HOME/MyApps/music"
 MUSIC_DIR="$HOME/music"
-CMUS_CONFIG="$HOME/.config/cmus/rc"
-SCRIPTS_DIR="$MUSIC_DIR/scripts"
-DOCS_DIR="$MUSIC_DIR/docs"
+SCRIPTS_DIR="$PROJECT_DIR/scripts"
+DOCS_DIR="$PROJECT_DIR/docs"
 MUSIC_PATH_CONF="$HOME/.config/cmus/music-path.conf"
 
 show_menu() {

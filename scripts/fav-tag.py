@@ -13,15 +13,21 @@ EMPTY = ""
 
 
 def tag_mp3(filepath, text):
-    """Tag MP3 files using ID3 COMM frame with UTF-8."""
-    from mutagen.id3 import ID3, COMM
+    """Tag MP3 files using ID3 COMM frame with UTF-8.
+    Also removes TXXX:comment frames used by ffmpeg/Lavf."""
+    from mutagen.id3 import ID3, COMM, TXXX
 
     try:
         audio = ID3(filepath)
     except Exception:
         audio = ID3()
 
+    # Remove both COMM and TXXX:comment frames for clean state
     audio.delall("COMM")
+    for key in list(audio.keys()):
+        if isinstance(audio[key], TXXX) and audio[key].desc.lower() == "comment":
+            del audio[key]
+
     if text:
         audio.add(COMM(encoding=3, lang="eng", desc="", text=text))
     audio.save(filepath)

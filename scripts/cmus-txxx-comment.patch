@@ -1,0 +1,11 @@
+--- a/id3.c
++++ b/id3.c
+@@ -450,6 +450,8 @@ static void decode_txxx(struct id3tag *id3, const char *buf, int len, int encodi
+ 		key = ID3_ALBUMSORT;
+ 	else if (!strcasecmp(out, "compilation"))
+ 		key = ID3_COMPILATION;
++	else if (!strcasecmp(out, "comment"))
++		key = ID3_COMMENT;
+ 
+ 	size = id3_skiplen(buf, len, encoding);
+ 	free(out_mem);

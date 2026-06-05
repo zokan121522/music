@@ -80,11 +80,11 @@ cat << 'EOF' | less -R
 
 ┌────────── F A V O R I T O S ★ ──────────┐
 │                                          │
-│  f       Toggle favorite ★/♡            │
-│  F       Load favorites playlist         │
+│  f       Toggle favorite ★ (tag + view)  │
+│  F       📂 Browse favorites folder       │
 │                                          │
-│  Tip: Favorites are saved to disk and    │
-│  persist between cmus sessions.          │
+│  Tip: ★ appears before ♪ in display.     │
+│  Favorites folder works like any other.  │
 │                                          │
 └──────────────────────────────────────────┘
 
@@ -114,7 +114,7 @@ cat << 'EOF' | less -R
 └────────────────────────────────┘
 
 ────────────────────────────────────────────────────────────
-  Tip: Press 5 to browse folders  |  f to ★ favorite
-  Press F to load favorites playlist  |  q to close help
+  Tip: f to ★ favorite  |  F to browse favorites folder
+  5 to browse music  |  q to close help
 ────────────────────────────────────────────────────────────
 EOF

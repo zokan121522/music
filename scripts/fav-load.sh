@@ -1,15 +1,16 @@
 #!/bin/bash
 # ═══════════════════════════════════════════════════════════
-#  CMUS — Load Favorites Playlist
-#  Loads all favorited songs into cmus playlist view
+#  CMUS — Browse Favorites
+#  Navigates to the favorites-view symlink directory so you
+#  can browse and play favorites like any other folder.
 #  Bind to: bind common F push shell ~/music/scripts/fav-load.sh
 # ═══════════════════════════════════════════════════════════
 
 FAV_FILE="$HOME/.config/cmus/favorites.list"
-FAV_PLAYLIST="$HOME/.config/cmus/favorites.pl"
-CMUS_DIR="$HOME/.config/cmus"
+FAV_VIEW_DIR="$HOME/.config/cmus/favorites-view"
+SCRIPTS_DIR="$HOME/music/scripts"
 
-mkdir -p "$CMUS_DIR"
+mkdir -p "$FAV_VIEW_DIR"
 
 # Check if any favorites exist
 if [ ! -s "$FAV_FILE" ]; then
@@ -17,13 +18,13 @@ if [ ! -s "$FAV_FILE" ]; then
     exit 0
 fi
 
-# Regenerate playlist from favorites list
-awk '{print}' "$FAV_FILE" > "$FAV_PLAYLIST"
+# Sync the symlink directory
+bash "$SCRIPTS_DIR/fav-sync.sh" 2>/dev/null
 
-# Load playlist into cmus and switch to playlist view
-cmus-remote -C "load $FAV_PLAYLIST" 2>/dev/null
+# Navigate cmus browser to the favorites view directory
+cmus-remote -C "browser-chdir $FAV_VIEW_DIR" 2>/dev/null
 sleep 0.3
-cmus-remote -C "view 3" 2>/dev/null
+cmus-remote -C "view 5" 2>/dev/null
 
 SONG_COUNT=$(wc -l < "$FAV_FILE" | tr -d ' ')
-osascript -e "display notification \"${SONG_COUNT} songs loaded\" with title \"★ Favorites Playlist\""
+osascript -e "display notification \"${SONG_COUNT} favorites — browse and play\" with title \"★ Favorites Folder\""

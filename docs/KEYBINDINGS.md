@@ -74,8 +74,11 @@
 
 | Key | Action |
 |-----|--------|
-| `f` | ★ Toggle favorite (add/remove current song) |
-| `F` | 📋 Load favorites playlist (view 3) |
+| `f` | ★ Toggle favorite — adds/removes ★ in tag + symlink |
+| `F` | 📂 Browse favorites folder — navigate & play as folder |
+
+> **Note**: Favorited songs show ★ before ♪ in the display (e.g. `★ ♪ Artist - Title`).
+> The favorites folder (`~/.config/cmus/favorites-view/`) contains symlinks with ★ names.
 
 ## Search
 

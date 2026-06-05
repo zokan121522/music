@@ -151,6 +151,12 @@ while true; do
             else
                 echo "  ✅ cmus is installed"
             fi
+            if python3 -c "import mutagen" 2>/dev/null; then
+                echo "  ✅ mutagen (tag editor) is installed"
+            else
+                echo "  Installing mutagen for tag editing..."
+                pip3 install mutagen -q
+            fi
             echo ""
             echo "  Press Enter to return to menu..."
             read

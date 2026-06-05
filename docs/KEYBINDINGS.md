@@ -67,9 +67,15 @@
 | `r` | Toggle repeat all |
 | `R` | Toggle repeat current |
 | `C` | Toggle continue |
-| `f` | Toggle follow |
 | `o` | Toggle sorted library |
 | `M` | Toggle play library |
+
+## Favorites
+
+| Key | Action |
+|-----|--------|
+| `f` | ★ Toggle favorite (add/remove current song) |
+| `F` | 📋 Load favorites playlist (view 3) |
 
 ## Search
 
@@ -80,7 +86,6 @@
 | `n` | Next result |
 | `N` | Previous result |
 | `L` | Live filter |
-| `F` | Filter command |
 
 ## Navigation
 

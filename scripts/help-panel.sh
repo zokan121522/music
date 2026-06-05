@@ -61,7 +61,6 @@ cat << 'EOF' | less -R
 │  y         Add to playlist                 │
 │  D / Del   Remove from list                │
 │  Tab       Switch between panels           │
-│  p         Pause (also moves tracks)       │
 │                                            │
 └────────────────────────────────────────────┘
 
@@ -79,6 +78,16 @@ cat << 'EOF' | less -R
 │                                │
 └────────────────────────────────┘
 
+┌────────── F A V O R I T O S ★ ──────────┐
+│                                          │
+│  f       Toggle favorite ★/♡            │
+│  F       Load favorites playlist         │
+│                                          │
+│  Tip: Favorites are saved to disk and    │
+│  persist between cmus sessions.          │
+│                                          │
+└──────────────────────────────────────────┘
+
 ┌────────── B Ú S Q U E D A ──────────┐
 │                                      │
 │  /       Search forward              │
@@ -86,7 +95,6 @@ cat << 'EOF' | less -R
 │  n       Next result                 │
 │  N       Previous result             │
 │  L       Live filter                 │
-│  F       Filter command              │
 │                                      │
 └──────────────────────────────────────┘
 
@@ -106,7 +114,7 @@ cat << 'EOF' | less -R
 └────────────────────────────────┘
 
 ────────────────────────────────────────────────────────────
-  Tip: Press 5 at any time to browse your music folders.
-  Press q to close this help and return to cmus.
+  Tip: Press 5 to browse folders  |  f to ★ favorite
+  Press F to load favorites playlist  |  q to close help
 ────────────────────────────────────────────────────────────
 EOF

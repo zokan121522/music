@@ -108,7 +108,7 @@ set format_treewin_artist=%a
 # ─── 3. BARRA DE ESTADO ────────────────────────────────────
 
 # Leyenda de controles visibles en la barra inferior
-set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }} %= %{?play_library?%{?playlist_mode!="all"?%{playlist_mode} }library} | %{?volume>=0?%{volume}%% }| %1{repeat}%1{shuffle} — [p]pause [b]next [z]prev [s]shuffle [r]repeat [q]quit
+set format_statusline= %{status} %{?show_playback_position?%{position} %{?duration?/ %{duration} }?%{?duration?%{duration} }} %= %{?play_library?%{?playlist_mode!="all"?%{playlist_mode} }library} | %{?volume>=0?%{volume}%% }| %1{repeat}%1{shuffle} — [p]pause [b]next [z]prev [s]shuffle [r]repeat [f]fav [F]list [q]quit
 
 # ─── 4. COMPORTAMIENTO ─────────────────────────────────────
 
@@ -178,6 +178,12 @@ bind common p player-pause
 
 # F1 para panel de ayuda
 bind common F1 push shell ~/music/scripts/help-panel.sh
+
+# f para toggle favoritos (★)
+bind common f push shell ~/music/scripts/fav-toggle.sh
+
+# F (Shift+f) para cargar lista de favoritos
+bind common F push shell ~/music/scripts/fav-load.sh
 
 # Volumen con + y - (ya existen por defecto, se mantienen)
 # + y - ya vienen bindeados de serie

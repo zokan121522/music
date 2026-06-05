@@ -38,12 +38,14 @@
 
 | Key | Action |
 |-----|--------|
-| `+` / `=` | Volume up (10%) |
-| `-` | Volume down (10%) |
+| `^U` (Ctrl+U) | Volume **up** (10%) |
+| `^D` (Ctrl+D) | Volume **down** (10%) |
 | `[` | Left channel up |
 | `]` | Right channel up |
 | `{` | Left channel down |
 | `}` | Right channel down |
+
+> `+` / `-` are overridden (no-op) — use `^U` / `^D` instead to avoid accidental triggers.
 
 ## List / Queue
 
@@ -77,8 +79,8 @@
 | `f` | ★ Toggle favorite — adds/removes ★ in tag + symlink |
 | `F` | 📂 Browse favorites folder — navigate & play as folder |
 
-> **Note**: Favorited songs show ★ before ♪ in the display (e.g. `★ ♪ Artist - Title`).
-> The favorites folder (`~/.config/cmus/favorites-view/`) contains symlinks with ★ names.
+> **Note**: Favorites are stored as ★ in the file's Comment tag and as symlinks in
+> `~/.config/cmus/favorites-view/`. Browse with `F` to see the ★-prefixed symlinks.
 
 ## Search
 

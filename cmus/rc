@@ -85,7 +85,7 @@ set color_info=255
 # ─── 2. FORMATO DE VISUALIZACIÓN ───────────────────────────
 
 # Formato de canción actual (Now Playing)
-set format_current= %{?comment?★ }♪ %a - %l%! - %n. %t %= %y 
+set format_current= ♪ %a - %l%! - %n. %t %= %y 
 
 # Formato alternativo (cuando está en cola/panel pequeño)
 set altformat_current= ♪ %t 
@@ -188,8 +188,12 @@ bind common f push shell ~/MyApps/music/scripts/fav-toggle.sh
 # F (Shift+f) para cargar lista de favoritos
 bind common F push shell ~/MyApps/music/scripts/fav-load.sh
 
-# Volumen con + y - (ya existen por defecto, se mantienen)
-# + y - ya vienen bindeados de serie
+# Volumen con ^U y ^D (Ctrl+U / Ctrl+D)
+bind common ^D vol -10%
+bind common ^U vol +10%
+# + y - por defecto sobreescritos con no-op para evitar cambios accidentales
+bind common + echo + does nothing, use ^U/^D
+bind common - echo - does nothing, use ^U/^D
 
 # ─── 7. AJUSTES VARIOS ─────────────────────────────────────
 

@@ -42,8 +42,8 @@ cat << 'EOF' | less -R
 
 ┌────────── V O L U M E N ──────────┐
 │                                    │
-│  + / =    Volume up (10%)          │
-│  -        Volume down (10%)        │
+│  ^U       Volume up (10%)          │
+│  ^D       Volume down (10%)        │
 │  [        Volume left channel up   │
 │  ]        Volume right channel up  │
 │  {        Volume left channel down │
@@ -114,7 +114,7 @@ cat << 'EOF' | less -R
 └────────────────────────────────┘
 
 ────────────────────────────────────────────────────────────
-  Tip: f to ★ favorite  |  F to browse favorites folder
+  ^U / ^D  Volume  |  f favorite ★  |  F browse favorites
   5 to browse music  |  q to close help
 ────────────────────────────────────────────────────────────
 EOF

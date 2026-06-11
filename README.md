@@ -6,7 +6,10 @@
 ## 🚀 Quick Start
 
 ```bash
-# Launch the player menu
+# Launch the player menu (recommended shortcut)
+musicIA
+
+# Or from the project directory
 ./LAUNCH.sh
 
 # Or launch cmus directly

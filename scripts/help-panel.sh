@@ -42,12 +42,14 @@ cat << 'EOF' | less -R
 
 ┌────────── V O L U M E N ──────────┐
 │                                    │
-│  ^U       Volume up (10%)          │
-│  ^D       Volume down (10%)        │
-│  [        Volume left channel up   │
-│  ]        Volume right channel up  │
-│  {        Volume left channel down │
-│  }        Volume right channel down│
+│  +        Volume up (10%)          │
+│  -        Volume down (10%)        │
+│  ^U       Volume up (alt)          │
+│  ^D       Volume down (alt)        │
+│  [        Left channel up          │
+│  ]        Right channel up         │
+│  {        Left channel down        │
+│  }        Right channel down       │
 │                                    │
 └────────────────────────────────────┘
 

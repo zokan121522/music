@@ -188,12 +188,11 @@ bind common f push shell ~/MyApps/music/scripts/fav-toggle.sh
 # F (Shift+f) para cargar lista de favoritos
 bind common F push shell ~/MyApps/music/scripts/fav-load.sh
 
-# Volumen con ^U y ^D (Ctrl+U / Ctrl+D)
+# Volumen con + y - (Ctrl+U / Ctrl+D como alternativa)
 bind common ^D vol -10%
 bind common ^U vol +10%
-# + y - por defecto sobreescritos con no-op para evitar cambios accidentales
-bind common + echo + does nothing, use ^U/^D
-bind common - echo - does nothing, use ^U/^D
+bind common + vol +10%
+bind common - vol -10%
 
 # ─── 7. AJUSTES VARIOS ─────────────────────────────────────
 

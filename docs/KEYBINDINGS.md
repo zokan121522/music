@@ -38,14 +38,14 @@
 
 | Key | Action |
 |-----|--------|
-| `^U` (Ctrl+U) | Volume **up** (10%) |
-| `^D` (Ctrl+D) | Volume **down** (10%) |
+| `+` | Volume **up** (10%) |
+| `-` | Volume **down** (10%) |
+| `^U` (Ctrl+U) | Volume up (alt, 10%) |
+| `^D` (Ctrl+D) | Volume down (alt, 10%) |
 | `[` | Left channel up |
 | `]` | Right channel up |
 | `{` | Left channel down |
 | `}` | Right channel down |
-
-> `+` / `-` are overridden (no-op) — use `^U` / `^D` instead to avoid accidental triggers.
 
 ## List / Queue
 
